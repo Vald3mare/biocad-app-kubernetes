@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biocad-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: biocad-app
+  template:
+    metadata:
+      labels:
+        app: biocad-app
+    spec:
+      containers:
+      - name: biocad-app
+        image: vald3mar/biocad-app:1.0
+        ports:
+        - containerPort: 32777
